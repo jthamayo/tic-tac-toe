@@ -1,16 +1,18 @@
-//import { useState } from "react";
+import { useState } from "react";
 import "../App.css";
 import Square from "./Square";
 
-function Board() {
-  const boardLength = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+function Board(turn) {
+  const [value, setValue] = useState(true);
 
-  const boardContent = boardLength.map((num) => {
+  const boardLength = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const icon = turn ? "X" : "O";
+
+  const boardContent = boardLength.map((num, index) => {
     {
-      return <Square key={num} />;
+      return <Square key={index + 1} value={icon} />;
     }
   });
-  console.log(boardContent);
 
   return (
     <>
