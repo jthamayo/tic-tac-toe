@@ -2,23 +2,15 @@ import { useState } from "react";
 import "../App.css";
 import Square from "./Square";
 
-function Board(turn) {
-  const [value, setValue] = useState(true);
-
-  const boardLength = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  const icon = turn ? "X" : "O";
-
-  const boardContent = boardLength.map((num, index) => {
-    {
-      return <Square key={index + 1} value={icon} />;
-    }
-  });
-
+const Board = ({ squares, onSquareClick }) => {
   return (
-    <>
-      <div className="board">{boardContent}</div>
-    </>
+      <div className="board">
+          {squares.map((value, index) => (
+              <Square key={index} value={value} onClick={() => onSquareClick(index)} />
+          ))}
+      </div>
   );
-}
+};
+
 
 export default Board;

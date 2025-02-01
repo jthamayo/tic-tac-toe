@@ -1,20 +1,11 @@
-import { useState } from "react";
 import "../App.css";
 
-function Square({value}) {
-  const [clicked, setClicked] = useState<boolean>(false);
-  const [icon, setIcon] = useState("O");
-
-  function handleClick() {
-    setClicked(true);
-    setIcon(value);
-  }
-
+const Square = ({ value, onClick }) => {
   return (
-    <>
-      <button onClick={handleClick}>{clicked ? icon : ""}</button>
-    </>
-  );
-}
+      <button className="square" onClick={onClick}>
+          {value}
+      </button>
+  )
+};
 
 export default Square;
