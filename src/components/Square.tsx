@@ -1,11 +1,16 @@
 import "../App.css";
 
-const Square = ({ value, onClick }) => {
+type SquareProps = {
+  value: string | null;
+  onClick: () => void;
+};
+
+const Square: React.FC<SquareProps> = ({ value, onClick }) => {
   return (
-      <button className="square" onClick={onClick}>
-          {value}
-      </button>
-  )
+    <button className="square" onClick={onClick}>
+      {value}
+    </button>
+  );
 };
 
 export default Square;
